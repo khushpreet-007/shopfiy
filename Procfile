@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn codewithstein 
+web: gunicorn app:app
