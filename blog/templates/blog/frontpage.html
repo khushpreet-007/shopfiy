@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for post in posts %}
+<style>
+    @media (max-width: 1200px) {
+        .para {
+            font-size: 90px;
+        }
+
+        .subtitle {
+            font-size: 70px;
+        }
+
+        .small,
+        small {
+            font-size: 45px;
+        }
+
+
+    }
+</style>
+<div class="post block">
+    <h2 class="subtitle" class=" ">{{ post.title }}</h2>
+
+    <small>Posted at {{ post.date_added }}</small>
+
+    <p class="para">{{ post.intro }}</p>
+
+    <small>
+        <a href="{% url 'post_detail' post.slug %}">Read more</a>
+    </small>
+</div>
+{% endfor %}
+{% endblock %}

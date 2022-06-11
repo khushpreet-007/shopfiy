@@ -1,0 +1,67 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<style>
+    @media (max-width: 1200px) {
+        .para {
+            font-size: 90px;
+        }
+
+        .subtitle {
+            font-size: 50px;
+        }
+
+        .small,
+        small {
+            font-size: 45px;
+        }
+
+
+    }
+</style>
+<h1 class="title">{{ post.title }}</h1>
+
+<small>Posted at {{ post.date_added }}</small>
+
+<p class="para"><strong>{{ post.intro }}</strong></p>
+
+<p class="para">{{ post.body|safe }}</p>
+
+<hr>
+
+<h2 class="subtitle">Comments</h2>
+
+{% for comment in post.comments.all %}
+<article class="media">
+    <div class="media-content">
+        <div class="content">
+            <p>
+                <strong>{{ comment.name }}</strong> <small>{{ comment.date_added }}</small>
+                <br>
+                {{ comment.body }}
+            </p>
+        </div>
+    </div>
+</article>
+{% empty %}
+<div class="notification">
+    <p>No comments yet!</p>
+</div>
+{% endfor %}
+
+<hr>
+
+<h2 class="subtitle">Add comment</h2>
+
+<form method="post" action=".">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <div class="field">
+        <div class="control">
+            <button class="button is-success">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
