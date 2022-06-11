@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn app:app
+web: gunicorn codewithstein.wsgi --log-file=-
