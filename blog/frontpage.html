@@ -3,6 +3,22 @@
 {% block content %}
 {% for post in posts %}
 <style>
+    
+      #home {
+        background-color: blue;
+    }
+
+    .controls button {
+        color: white;
+        padding: 8px;
+        border-radius: 8px;
+        border: none;
+        font-size: 20px;
+      
+        cursor: pointer;
+        margin-bottom: 1px;
+        margin-top: 1px;
+    }
     @media (max-width: 1200px) {
         .para {
             font-size: 90px;
@@ -28,7 +44,7 @@
     <p class="para">{{ post.intro }}</p>
 
     <small>
-        <a href="{% url 'post_detail' post.slug %}">Read more</a>
+               <button id="home" onclick="window.open('{% url 'post_detail' post.slug %}','_self');">Read more</button>
     </small>
 </div>
 {% endfor %}
