@@ -2,9 +2,10 @@
 
 {% block content %}
 {% for post in posts %}
+
+
 <style>
-    
-      #home {
+    #home {
         background-color: blue;
     }
 
@@ -19,9 +20,10 @@
         margin-bottom: 1px;
         margin-top: 1px;
     }
+
     @media (max-width: 1200px) {
         .para {
-            font-size: 90px;
+            font-size: 70px;
         }
 
         .subtitle {
@@ -37,6 +39,7 @@
     }
 </style>
 <div class="post block">
+
     <h2 class="subtitle" class=" ">{{ post.title }}</h2>
 
     <small>Posted at {{ post.date_added }}</small>
@@ -44,9 +47,9 @@
     <p class="para">{{ post.intro }}</p>
 
     <small>
-         <section class="controls">
-               <button id="home" onclick="window.open('{% url 'post_detail' post.slug %}','_self');">Read more</button>
-              </section>
+        <section class="controls">
+            <button id="home" onclick="window.open('{% url 'post_detail' post.slug %}','_self');">Read more</button>
+        </section>
     </small>
 </div>
 {% endfor %}
