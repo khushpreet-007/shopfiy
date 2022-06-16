@@ -44,7 +44,9 @@
     <p class="para">{{ post.intro }}</p>
 
     <small>
+         <section class="controls">
                <button id="home" onclick="window.open('{% url 'post_detail' post.slug %}','_self');">Read more</button>
+              </section>
     </small>
 </div>
 {% endfor %}
